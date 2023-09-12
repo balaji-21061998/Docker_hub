@@ -7,7 +7,7 @@ pipeline {
 
         stage('Build docker image') {
             steps {  
-                sh ' docker build -t balajipedada/balaji-techie:$BUILD_NUMBER .'
+                sh ' docker build -t tomcat:v4 .'
             }
         }
         stage('login to dockerhub') {
@@ -17,7 +17,7 @@ pipeline {
         }
         stage('push image') {
             steps{
-                sh ' docker push balajipedada/balaji-techie:$BUILD_NUMBER'
+                sh ' docker push balajipedada/balaji-techie:v4'
             }
         }
 }
