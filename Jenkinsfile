@@ -1,13 +1,13 @@
 pipeline {
     agent any 
     environment {
-    DOCKERHUB_CREDENTIALS = credentials('Docker_hub')
+    DOCKERHUB_CREDENTIALS = credentials('dockerhub-credentials')
     }
     stages { 
 
         stage('Build docker image') {
             steps {  
-                sh ' docker build -t balajipedada/balaji-techie-tomcat:v4 .'
+                sh ' docker build -t balajipedada/tomcat:v4 .'
             }
         }
         stage('login to dockerhub') {
@@ -17,7 +17,7 @@ pipeline {
         }
         stage('push image') {
             steps{
-                sh ' docker push balajipedada/balaji-techie-tomcat:v4'
+                sh ' docker push balajipedada/tomcat:v4'
             }
         }
 }
