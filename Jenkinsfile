@@ -7,7 +7,7 @@ pipeline {
 
         stage('Build docker image') {
             steps {  
-                sh ' docker build -t balajipedada/tomcat:v4 .'
+                sh ' docker build -t balajipedada/tomcat:v6 .'
             }
         }
         stage('login to dockerhub') {
@@ -17,7 +17,7 @@ pipeline {
         }
         stage('push image') {
             steps{
-                sh ' docker push balajipedada/tomcat:v4'
+                sh ' docker push balajipedada/tomcat:v6'
             }
         }
 }
